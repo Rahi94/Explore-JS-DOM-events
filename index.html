@@ -6,6 +6,26 @@
     <title>explore-js-dom</title>
 </head>
 <body>
-    
+    <h3 id="secret-info">My secret info</h3>
+    <input id="delete-confirm" type="text" placeholder="please enter delete">
+    <button id="btn-delete" disabled>delete</button>
+
+
+    <script>
+        document.getElementById('delete-confirm').addEventListener('keyup',function(event){
+            const deleteButton = document.getElementById('btn-delete');
+            const text = event.target.value;
+            if(text === 'delete'){
+                deleteButton.removeAttribute('disabled');
+            }
+            else{
+                deleteButton.setAttribute('disabled',true);
+            }
+        })
+        document.getElementById('btn-delete').addEventListener('click',function(){
+           const secret = document.getElementById('secret-info');
+           secret.style.display = 'none';
+        })
+    </script>
 </body>
 </html>
